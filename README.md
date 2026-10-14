@@ -1,88 +1,61 @@
 # Corporate Profitability Analysis and Projection
 
-## Project Overview
-This project analyzes financial data from publicly listed companies on the New York Stock Exchange (NYSE) to identify highly profitable firms and generate three-year profit projections. Using historical profit levels and growth trends, the analysis produces optimistic, pessimistic, and average scenarios to support high-level investment insights.
+## Overview
 
-Unlike machine learning–based projects, this analysis focuses on **financial reasoning, trend analysis, and scenario modeling**, reflecting real-world corporate finance decision-making.
+An analysis of historical NYSE company financial data that compares profitability and builds three-year profit scenarios.
 
----
+## Objective
 
-## Problem Statement
-The objective of this project is to:
-- Identify the most profitable companies based on historical average profit
-- Evaluate profit growth trends over time
-- Generate three-year forward projections under optimistic, pessimistic, and average assumptions
-- Compare companies based on both expected returns and downside risk
+Identify historically profitable companies, examine profit growth, and compare projected upside and downside under different growth assumptions.
 
-The goal is to determine which firms may be most attractive to investors under different risk preferences.
+## Data
 
----
+The project uses a Kaggle corporate financial dataset containing company identifiers and historical financial figures for publicly listed NYSE companies. The source CSV is not included in this repository.
 
-## Dataset
-- **Source:** Kaggle  
-- **Coverage:** Publicly listed NYSE companies  
-- **Key Variables:**  
-  - Company identifier  
-  - Historical profit figures  
-  - Growth rates and trend indicators  
+## Approach
 
-The dataset provides firm-level financial metrics suitable for exploratory and projection-based analysis rather than predictive modeling.
+1. Explore profit distributions and rank companies by historical average profitability.
+2. Calculate historical profit growth rates.
+3. Project three years of profits using maximum, mean, and minimum historical growth for optimistic, average, and pessimistic scenarios.
+4. Compare scenario outcomes across companies.
 
----
+The complete calculations and outputs are in [the project notebook](notebooks/corporate_profitability_analysis.ipynb).
 
-## Methodology
-1. **Exploratory Data Analysis (EDA)**  
-   - Inspected profit distributions and trends across firms  
-   - Identified top performers based on average profitability  
+## Results
 
-2. **Growth Trend Analysis**  
-   - Calculated historical growth rates for each company  
-   - Used these trends as the basis for forward projections  
+- Verizon (VZ), Bank of America (BAC), and AT&T (T) showed strong upside under optimistic and average assumptions.
+- Verizon had the highest potential returns in the optimistic scenario.
+- Wells Fargo (WFC) showed relatively lower downside in the modeled scenarios.
+- The companies with the highest modeled upside were not always those with the lowest modeled downside.
 
-3. **Profit Projections**  
-   - Generated three-year projections under:
-     - **Optimistic (maximum growth)**
-     - **Average (mean growth)**
-     - **Pessimistic (minimum growth)** scenarios  
+These are findings from historical scenario analysis, rather than forecasts of current investment returns.
 
-4. **Comparative Evaluation**  
-   - Ranked companies based on projected returns  
-   - Assessed tradeoffs between upside potential and downside risk  
+## Tools
 
----
-
-## Key Findings
-- Companies such as **Verizon (VZ)**, **Bank of America (BAC)**, and **AT&T (T)** show strong upside potential under optimistic and average growth assumptions.
-- Verizon exhibits the highest potential returns under optimistic scenarios.
-- **Wells Fargo (WFC)** demonstrates relatively lower downside risk, making it a more conservative investment option.
-- Firms with the highest upside are not always those with the lowest risk, highlighting the importance of scenario-based analysis.
-
----
-
-## Limitations
-- Projections are based solely on historical profit trends and do not incorporate:
-  - Macroeconomic conditions
-  - Interest rates
-  - Industry-specific shocks
-  - Firm-level strategic changes
-- This analysis should be interpreted as **illustrative**, not as financial advice.
-- Results are sensitive to historical volatility and limited data scope.
-
----
-
-## Conclusion
-This project demonstrates how historical financial data can be used to generate meaningful profit projections and comparative investment insights without relying on machine learning models. By combining profitability levels with growth trends, the analysis highlights tradeoffs between risk and return and provides a structured framework for evaluating investment opportunities.
-
----
-
-## Tools Used
-- Python  
-- pandas  
-- NumPy  
-- Jupyter Notebook  
-
----
+Python, pandas, NumPy, and Jupyter Notebook.
 
 ## How to Run
-pip install -r requirements.txt
 
+1. Clone this repository and enter its directory.
+2. Install dependencies and launch Jupyter:
+
+   ```bash
+   python -m pip install -r requirements.txt
+   python -m pip install notebook
+   python -m notebook
+   ```
+
+3. Obtain the corporate financial dataset used by the analysis.
+4. Open [`notebooks/corporate_profitability_analysis.ipynb`](notebooks/corporate_profitability_analysis.ipynb). Change its `/content/Corporate Financial Dataset.csv` path to your CSV location.
+5. Run the cells in order. For Google Colab, upload the CSV to `/content/`.
+
+## Limitations and Next Steps
+
+- Projections depend on historical growth and are sensitive to volatility and the available data period.
+- The scenarios omit macroeconomic conditions, interest rates, industry shocks, and strategic changes.
+- Future work could incorporate these drivers and test alternative scenario assumptions.
+- The analysis is illustrative and should not be interpreted as financial advice.
+
+## License
+
+See [LICENSE](LICENSE) for repository licensing. Refer to the dataset source for its usage terms.
